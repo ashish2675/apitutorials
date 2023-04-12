@@ -20,7 +20,8 @@ class _HomeScreenState extends State<HomeScreen> {
         await http.get(Uri.parse('https://jsonplaceholder.typicode.com/posts'));
     var data = jsonDecode(response.body.toString());
     if (response.statusCode == 200) {
-      for (Map i in data) {
+      postList.clear();
+      for (var i in data) {
         postList.add(PostsModel.fromJson(i));
       }
       return postList;
@@ -45,7 +46,38 @@ class _HomeScreenState extends State<HomeScreen> {
                   return ListView.builder(
                     itemCount: postList.length,
                     itemBuilder: ((context, index) {
-                      return Text(postList[index].title.toString());
+                      return Card(
+                        child: Padding(
+                          padding: const EdgeInsets.all(8.0),
+                          child: Column(
+                            mainAxisAlignment: MainAxisAlignment.start,
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Text(
+                                "Title",
+                                style: TextStyle(
+                                    fontSize: 15, fontWeight: FontWeight.bold),
+                              ),
+                              SizedBox(
+                                height: 5,
+                              ),
+                              Text(postList[index].title.toString()),
+                              SizedBox(
+                                height: 5,
+                              ),
+                              Text(
+                                "Description",
+                                style: TextStyle(
+                                    fontSize: 15, fontWeight: FontWeight.bold),
+                              ),
+                              SizedBox(
+                                height: 5,
+                              ),
+                              Text(postList[index].body.toString()),
+                            ],
+                          ),
+                        ),
+                      );
                     }),
                   );
                 }
