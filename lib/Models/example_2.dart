@@ -18,6 +18,8 @@ class _ExampleTwoState extends State<ExampleTwo> {
         await http.get(Uri.parse('https://jsonplaceholder.typicode.com/posts'));
     var data = jsonDecode(response.body.toString());
 
+    print(data);
+
     if (response.statusCode == 200) {
       for (var i in data) {
         Photos photos = Photos(title: i['title'], url: i['url'], id: i['id']);
@@ -39,7 +41,7 @@ class _ExampleTwoState extends State<ExampleTwo> {
       body: Column(
         children: [
           Expanded(
-            flex: 2,
+            // flex: 2,
             child: FutureBuilder(
                 future: getPhotos(),
                 builder: (context, AsyncSnapshot<List<Photos>> snapshot) {
@@ -54,7 +56,7 @@ class _ExampleTwoState extends State<ExampleTwo> {
                           subtitle:
                               Text(snapshot.data![index].title.toString()),
                           title: Text('Notes id:' +
-                              snapshot.data![index].title.toString()),
+                              snapshot.data![index].id.toString()),
                         );
                       });
                 }),
