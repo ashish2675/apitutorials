@@ -21,7 +21,7 @@ class _ExampleTwoState extends State<ExampleTwo> {
     print(data);
 
     if (response.statusCode == 200) {
-      for (var i in data) {
+      for (Map i in data) {
         Photos photos = Photos(title: i['title'], url: i['url'], id: i['id']);
         photosList.add(photos);
       }
