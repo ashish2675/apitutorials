@@ -71,6 +71,7 @@ class _ExampleThreeState extends State<ExampleThree> {
                                             .data![index].address!.geo!.lat
                                             .toString()),
                                   ],
+                                  //  added rows according to the api
                                 ),
                               ),
                             );
