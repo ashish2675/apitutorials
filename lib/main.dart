@@ -2,6 +2,8 @@ import 'package:apitutorials/example_2.dart';
 import 'package:apitutorials/example_five.dart';
 import 'package:apitutorials/example_four.dart';
 import 'package:apitutorials/home_screen.dart';
+import 'package:apitutorials/signup.dart';
+import 'package:apitutorials/upload_image.dart';
 import 'package:flutter/material.dart';
 
 import 'example_three.dart';
@@ -21,7 +23,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: const LastExampleScreen(),
+      home: const UploadImageScreen(),
     );
   }
 }
